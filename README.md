@@ -71,3 +71,26 @@ We thank Biwei Xie, the author of CVR, for his kind and informative discussion o
 The code is licensed with MIT Opensource License.
 
 But note that, the dataset, Intel MKL and other previous research kernels are copyright by other entities.
+
+
+# Additional Instructions 
+
+Load intel mkl 
+```bash
+# use intel mkl path to initialize
+source /intel/mkl/path/setvars.sh
+```
+
+Run make
+```bash
+make
+```
+
+Make fill generate two executables in the `bin` directory.
+
+To generate data, look at the contrib/data.txt and download matrices from the 
+suitesparse data collection.
+Save the `.mtx` files in a directory called matrices and run 
+`contrib/generate_mtx.py` to generate the additional custom representation
+of the sparse matrices needed to run `bin/spmv_mkl` and `bin/spmv_spv8`,
+These files will be saved to a directory `data`.
