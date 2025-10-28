@@ -75,7 +75,7 @@ But note that, the dataset, Intel MKL and other previous research kernels are co
 
 # Additional Instructions 
 
-Load intel mkl 
+Follow instructions in `INTEL_MKL.md` to install and load intel mkl 
 ```bash
 # use intel mkl path to initialize
 source /intel/mkl/path/setvars.sh
@@ -94,3 +94,7 @@ Save the `.mtx` files in a directory called matrices and run
 `contrib/generate_mtx.py` to generate the additional custom representation
 of the sparse matrices needed to run `bin/spmv_mkl` and `bin/spmv_spv8`,
 These files will be saved to a directory `data`.
+
+Authors use `numactl --cpunodebind=1 --membind=1` to execute the binaries,
+I omitted these because the server machine does not have `numactl`. Ask the
+administrators to install this if needed.
